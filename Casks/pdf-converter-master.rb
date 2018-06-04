@@ -1,12 +1,12 @@
 cask 'pdf-converter-master' do
-  version '5.1.0'
-  sha256 '7380f0c9062a64cd83c3fe4268ae27fb796cced8797dba4e676e74fa3f30f3b7'
+  version '6.0.0'
+  sha256 'b949cf6bca92f47aa5b6909a962350721d42cc3d913c2e6d7498bc068b04e3da'
 
   url "http://www.lightenpdf.com/download/download.aspx?file=PDF-Converter-Master-#{version.no_dots}.zip"
   appcast 'http://www.lightenpdf.com/xml/PDF-Converter-Mac.xml',
-          checkpoint: 'dbca8cd297fd79e1fa28d94b49770f28f572c728f6a7907a4fc669755961986e'
+          checkpoint: '61b51d27774c6049376bd8a4b0db46d7c3d90acc6675b945a78813ce7d011a2e'
   name 'PDF Converter Master'
-  homepage 'http://www.lightenpdf.com/pdf-converter-mac.html'
+  homepage 'https://www.lightenpdf.com/pdf-converter-mac.html'
 
   app 'PDF Converter Master.app'
 end

@@ -1,13 +1,21 @@
 cask 'fuse' do
-  version '0.33.1.10445'
-  sha256 '6a80042d91772dc610063f513376069dd72e29d73613f867f30db4bf4fbaeb0c'
+  version '1.8.1.15610'
+  sha256 '448fd88fef4dde6b258db3304dcbf8416237fd35ee928d48c4a0bc9d40d0556a'
 
-  # fuse-dl.azureedge.net was verified as official when first introduced to the cask
-  url "https://fuse-dl.azureedge.net/releaseartifacts/fuse_osx_#{version.dots_to_underscores}.pkg"
+  url "https://www.fusetools.com/downloads/#{version}/osx"
   name 'Fuse Fusetools'
   homepage 'https://www.fusetools.com/'
 
-  pkg "fuse_osx_#{version.dots_to_underscores}.pkg"
+  depends_on macos: '>= :mavericks'
+  container type: :pkg
+
+  pkg 'fuse.pkg'
+
+  # This is a horrible hack to force the file extension.
+  # The backend code should be fixed so that this is not needed.
+  preflight do
+    system_command '/bin/mv', args: ['--', staged_path.join('osx'), staged_path.join('fuse.pkg')]
+  end
 
   uninstall pkgutil: 'com.fusetools.fuse'
 end

@@ -1,10 +1,8 @@
 cask 'aqua-data-studio' do
-  version '17.0.11'
-  sha256 '0c252f39f662542066793f9d57712740fae39e29ef45469521e21c9de53e0885'
+  version '19.0.0'
+  sha256 '433eb4c0665d1638722628e33c6b80f52bc29e17ff4f11c745691df5b56158f9'
 
-  url "http://www.aquafold.com/download/v#{version.major}.0.0/osx/ads-osx-#{version}.tar.gz"
-  appcast 'http://www.aquafold.com/download/',
-          checkpoint: '03f771b8d51c558dbbd33b15b590f0820f8e05f66a7afdad346d8efb2c30a75e'
+  url "http://downloads.aquafold.com/v#{version.major_minor}.0/osx/ads-osx-#{version}.tar.gz"
   name 'Aquafold Aqua Data Studio'
   homepage 'http://www.aquafold.com/aquadatastudio.html'
 

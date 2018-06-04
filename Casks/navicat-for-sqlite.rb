@@ -1,8 +1,10 @@
 cask 'navicat-for-sqlite' do
-  version '11.2.16'
-  sha256 '270f17e53ccf4443e02f67ce705388d55fb8d0ae3b0adbcb4bb1452f8d10d94e'
+  version '12.0.26'
+  sha256 '43d6288c4ebed50b0ebda05f19deedb75860708e26485dd77309ab9e7f3c4f42'
 
   url "http://download.navicat.com/download/navicat#{version.major_minor.no_dots}_sqlite_en.dmg"
+  appcast "https://www.navicat.com/updater/v#{version.major_minor.no_dots}/sysProfileInfo.php?appName=Navicat%20for%20SQLite",
+          checkpoint: '677eaba5a4ea476404cb3581b731a6087dcea99c8f9650924b5b414e9d38e0d3'
   name 'Navicat for SQLite'
   homepage 'https://www.navicat.com/products/navicat-for-sqlite'
 

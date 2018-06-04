@@ -1,20 +1,23 @@
 cask 'telegram-desktop' do
-  version '1.0.14'
-  sha256 '5b26864a532ba90ba06179a68233f0c6549035d3133a887d71ac82657331098f'
+  version '1.3.0'
+  sha256 'e3ba48d785f7d1928d3a9751cab3e679081c1e53207184cf08eab6cd8d69b608'
 
-  # tdesktop.com was verified as official when first introduced to the cask
-  url "https://updates.tdesktop.com/tmac/tsetup.#{version}.dmg"
-  appcast "https://tdesktop.com/mac/tupdates/current?version=#{version.no_dots}",
-          checkpoint: '670837f1300c0f0aa7a7db9f10dc9fd121568eea9e9f87df5fe4768a5ff3c18c'
+  # github.com/telegramdesktop/tdesktop/releases/download was verified as official when first introduced to the cask
+  url "https://github.com/telegramdesktop/tdesktop/releases/download/v#{version}/tsetup.#{version}.dmg"
+  appcast 'https://github.com/telegramdesktop/tdesktop/releases.atom',
+          checkpoint: '941ffaed7bbe8d379d50cd64612fb58bed1bb02f458012ab20d8e1808e5c2eea'
   name 'Telegram Desktop'
   homepage 'https://desktop.telegram.org/'
+
+  auto_updates true
+  conflicts_with cask: 'telegram-desktop-dev'
 
   # Renamed to avoid conflict with telegram
   app 'Telegram.app', target: 'Telegram Desktop.app'
 
-  zap delete: [
-                '~/Library/Application Support/Telegram Desktop',
-                '~/Library/Preferences/com.tdesktop.Telegram.plist',
-                '~/Library/Saved Application State/com.tdesktop.Telegram.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Telegram Desktop',
+               '~/Library/Preferences/com.tdesktop.Telegram.plist',
+               '~/Library/Saved Application State/com.tdesktop.Telegram.savedState',
+             ]
 end

@@ -1,10 +1,28 @@
 cask 'free-download-manager' do
-  version '5.1.24'
-  sha256 'e33bd205b9f326e375ce5a354396324d80266afd2a76b79d35c8fa685a1493a3'
+  version '5.1'
+  sha256 :no_check # required as upstream package is updated in-place
 
-  url "http://files2.freedownloadmanager.org/#{version.major}/#{version.major_minor}-latest/fdm.dmg"
+  url "https://dn3.freedownloadmanager.org/#{version.major}/#{version}-latest/fdm.dmg"
   name 'Free Download Manager'
-  homepage 'http://www.freedownloadmanager.org/landing5.htm'
+  homepage 'https://www.freedownloadmanager.org/'
+
+  depends_on macos: '>= :mavericks'
 
   app 'Free Download Manager.app'
+
+  uninstall launchctl: [
+                         "org.freedownloadmanager.fdm#{version.major}",
+                         "org.freedownloadmanager.fdm#{version.major}.helper",
+                       ],
+            quit:      [
+                         "org.freedownloadmanager.fdm#{version.major}",
+                         "org.freedownloadmanager.fdm#{version.major}.launcher",
+                       ]
+
+  zap trash: [
+               '~/Library/Application Support/Free Download Manager',
+               "~/Library/Caches/org.freedownloadmanager.fdm#{version.major}",
+               "~/Library/Preferences/org.freedownloadmanager.fdm#{version.major}.plist",
+               "~/Library/Saved Application State/org.freedownloadmanager.fdm#{version.major}.savedState",
+             ]
 end

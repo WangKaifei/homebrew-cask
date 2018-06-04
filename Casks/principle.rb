@@ -1,13 +1,14 @@
 cask 'principle' do
-  version '2.0.6'
-  sha256 '1820f400db72566698a3f4ce16c4ae6fc2ed7f6bc796ffe0158d328c6e5b54f5'
+  version '3.9'
+  sha256 'b765259686fa41c46ce38544be91ff64a47b8c244cbd32740b37c67ec9702c02'
 
-  # dl.dropboxusercontent.com/u/13897407 was verified as official when first introduced to the cask
-  url "https://dl.dropboxusercontent.com/u/13897407/Principle_#{version.dots_to_underscores}.zip"
-  appcast 'https://dl.dropboxusercontent.com/u/13897407/buildTrain-601A6666-57A4-4C19-BDD3-1387B3CB9719.xml',
-          checkpoint: 'b29797807d5f46132632e0d92c23ee3e176afa43c12c0881f826bfc7eb2deace'
+  url "http://principleformac.com/download/Principle_#{version.dots_to_underscores}.zip"
+  appcast 'http://principleformac.com/update2.xml',
+          checkpoint: 'a93a838b33e9f3175f893dc6dcff84066d1e354860aa1c537e63cf0117a8db51'
   name 'Principle'
   homepage 'http://principleformac.com/'
+
+  depends_on macos: '>= :el_capitan'
 
   app 'Principle.app'
 end

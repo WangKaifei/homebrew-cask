@@ -5,9 +5,9 @@ cask 'gingr' do
   # github.com/marbl/gingr was verified as official when first introduced to the cask
   url "https://github.com/marbl/gingr/releases/download/v#{version}/gingr-OSX64-v#{version}.app.zip"
   appcast 'https://github.com/marbl/gingr/releases.atom',
-          checkpoint: 'd9f1acde954eab6d308121d0665af8c4bf8206d5ad5fac2b272f36cb4f15fd6c'
+          checkpoint: 'f2526e74819b698040b1d02d8db3571885ef0d1acde9608a7f41702c003ab9ac'
   name 'Gingr'
   homepage 'https://harvest.readthedocs.io/en/latest/content/gingr.html'
 
-  app 'Gingr.app'
+  app "gingr-OSX64-v#{version}.app"
 end

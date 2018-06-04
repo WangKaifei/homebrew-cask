@@ -1,18 +1,20 @@
 cask 'cyberduck' do
-  version '5.3.7.23440'
-  sha256 'd4893a669d413ff691167f0afdc73d6fe736753ace7c6990eda9d5ae00294d31'
+  version '6.6.0.28133'
+  sha256 '1dbd8c3e06f6358d962f417c236a3a7ffeae5fb03efc5df4bd4bc8968c9da0f7'
 
   url "https://update.cyberduck.io/Cyberduck-#{version}.zip"
   appcast 'https://version.cyberduck.io/changelog.rss',
-          checkpoint: '8df61d456c80d69a15188136d45bda41b0b5f4cd05077131868204bdba1ed46c'
+          checkpoint: '6a6d790018ebe2f1e0d44d7302aadf426bbf6ac9cc74f5b0855130f23ea6131c'
   name 'Cyberduck'
   homepage 'https://cyberduck.io/'
 
+  auto_updates true
+
   app 'Cyberduck.app'
 
-  zap delete: [
-                '~/Library/Application Support/Cyberduck',
-                '~/Library/Preferences/ch.sudo.cyberduck.plist',
-                '~/Library/Caches/ch.sudo.cyberduck',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Cyberduck',
+               '~/Library/Caches/ch.sudo.cyberduck',
+               '~/Library/Preferences/ch.sudo.cyberduck.plist',
+             ]
 end

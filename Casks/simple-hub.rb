@@ -1,17 +1,17 @@
 cask 'simple-hub' do
-  version '4.5.8-1271'
-  sha256 'e5fb63cb351f9b804b5d9fd5a7e5596efe59f914c7fce28e95596d6a9a5563b1'
+  version '5.0.5-1565'
+  sha256 'df168e883cbd389d7df1ffaef1087807af038dbcbec837e0994add95f732cc54'
 
-  url "https://www.simplecontrol.com/b/SimpleHub-#{version.no_dots}.zip"
+  url "https://www.simplecontrol.com/b/SimpleHub-macOS-#{version.no_dots}.zip"
   appcast 'https://www.simplecontrol.com/b/Simple-HubAppcast.xml',
-          checkpoint: '930a2df33d838cbf49b4b1fcc082f5f0ccafd20e8cad165b4b5d9b456f4037fd'
+          checkpoint: 'f030a1908ef636cf8e9caaf41c247b7f3400845829edbb6651f5d23809d0df0e'
   name 'Simple Hub'
   homepage 'https://store.simplecontrol.com/simple-sync.html/'
 
   app 'Simple Hub.app'
 
-  zap delete: [
-                '~/Library/Application Support/Roomie Agent',
-                '~/Library/Preferences/com.roomie.agent.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Roomie Agent',
+               '~/Library/Preferences/com.roomie.agent.plist',
+             ]
 end

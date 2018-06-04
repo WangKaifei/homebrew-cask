@@ -1,29 +1,41 @@
 cask 'karabiner-elements' do
-  version '0.90.86'
-  sha256 '5b5648ba612bad54cc1f5fe0d4534f2ec88008c34461bef6a6cb11ba76a9ede7'
+  if MacOS.version == :el_capitan
+    version '11.6.0'
+    sha256 'c1b06252ecc42cdd8051eb3d606050ee47b04532629293245ffdfa01bbc2430d'
+  else
+    version '12.1.0'
+    sha256 '0e1fd76efcc2b7b8766b77c4ad5a58faefbb6b706d7669b097942d64ae4be62e'
+  end
 
   url "https://pqrs.org/osx/karabiner/files/Karabiner-Elements-#{version}.dmg"
   appcast 'https://pqrs.org/osx/karabiner/files/karabiner-elements-appcast.xml',
-          checkpoint: '57280db5553817c7b39f7d473756018942f26c63c4b468579d0711bc65b69fba'
+          checkpoint: '9eefcef483b220d58623de8f457b7c313d50db953135f09e5e3aff5170d62837'
   name 'Karabiner Elements'
   homepage 'https://pqrs.org/osx/karabiner/'
 
   auto_updates true
+  depends_on macos: '>= :el_capitan'
 
   pkg 'Karabiner-Elements.sparkle_guided.pkg'
 
-  uninstall quit:    'org.pqrs.Karabiner-Elements',
+  uninstall signal:  [
+                       ['TERM', 'org.pqrs.Karabiner-Elements'],
+                       ['TERM', 'karabiner_grabber'],
+                       ['TERM', 'karabiner_console_user_server'],
+                     ],
             pkgutil: 'org.pqrs.Karabiner-Elements',
             script:  {
-                       executable: '/Library/Application Support/org.pqrs/Karabiner-Elements/uninstall.sh',
+                       executable: '/Library/Application Support/org.pqrs/Karabiner-Elements/uninstall_core.sh',
                        sudo:       true,
                      }
 
-  zap       delete: [
-                      '~/Library/Application Support/Karabiner-Elements',
-                      '~/.karabiner.d',
-                      '~/.config/karabiner',
-                      '~/Library/Preferences/org.pqrs.Karabiner-Elements-Updater.plist',
-                      '~/Library/Caches/org.pqrs.Karabiner-Elements-Updater',
-                    ]
+  # kext: 'org.pqrs.driver.Karabiner.VirtualHIDDevice.v*': Should not be uninstalled by Cask
+
+  zap trash: [
+               '~/Library/Application Support/Karabiner-Elements',
+               '~/.karabiner.d',
+               '~/.config/karabiner',
+               '~/Library/Preferences/org.pqrs.Karabiner-Elements-Updater.plist',
+               '~/Library/Caches/org.pqrs.Karabiner-Elements-Updater',
+             ]
 end

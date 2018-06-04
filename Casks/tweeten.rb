@@ -1,13 +1,13 @@
 cask 'tweeten' do
-  version '3.3.3'
-  sha256 'a533c4ece9f0bb097015981954b4de8f7e7b5678fe8dcb0db966356473a87ba8'
+  version '4.4.1'
+  sha256 '1dae37a6adf97d4e1fdcccd69c365187147ce5428905dd01e6d6ebf3592e5af3'
 
-  # github.com/MehediH/TweetenSite was verified as official when first introduced to the cask
-  url "https://github.com/MehediH/TweetenSite/releases/download/#{version}/tweeten-darwin-x64.zip"
-  appcast 'https://github.com/MehediH/TweetenSite/releases.atom',
-          checkpoint: '4836d480b7464d0c13c23d54bec6fc4890046464159abd6bfad9170ea5683451'
+  # github.com/MehediH/Tweeten was verified as official when first introduced to the cask
+  url "https://github.com/MehediH/Tweeten/releases/download/#{version}/tweeten-darwin-x64.zip"
+  appcast 'https://github.com/MehediH/Tweeten/releases.atom',
+          checkpoint: '486b9bc69a51e466da5e346ae57fe2720a0d2e6acff1306645229cb90f1604ed'
   name 'Tweeten'
-  homepage 'http://tweeten.xyz/'
+  homepage 'http://tweetenapp.com/'
 
   app 'tweeten-darwin-x64/Tweeten.app'
 end

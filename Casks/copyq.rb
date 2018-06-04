@@ -1,13 +1,23 @@
 cask 'copyq' do
-  version '2.9.0'
-  sha256 '4b784d3a7edab3fe4883175cd0fad44116e9db444865403ce0e7a08479016dfe'
+  version '3.4.0'
+  sha256 '8b8f066c1383debb23d0e2e4832f42f889ec0d830410a3da6115a4dd3a8d6810'
 
   # github.com/hluk/CopyQ was verified as official when first introduced to the cask
   url "https://github.com/hluk/CopyQ/releases/download/v#{version}/CopyQ.dmg"
   appcast 'https://github.com/hluk/CopyQ/releases.atom',
-          checkpoint: '076ee71758e41f3684c5225522c2c14c0c8a0e16ac9d59d8c6e30741a2cdb24c'
+          checkpoint: 'e5569c6f53e7b2ee83a40b6e146fa58809c8ffddd769238eb0bc7047184612cf'
   name 'CopyQ'
   homepage 'https://hluk.github.io/CopyQ/'
 
   app 'CopyQ.app'
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/copyq.wrapper.sh"
+  binary shimscript, target: 'copyq'
+
+  preflight do
+    IO.write shimscript, <<~EOS
+      #!/bin/bash
+      exec '#{appdir}/CopyQ.app/Contents/MacOS/copyq' "$@"
+    EOS
+  end
 end

@@ -1,11 +1,11 @@
 cask 'detectx' do
-  version '2.37'
-  sha256 '728f6e91035154046794f219db396160f636125eb3f1458c124645420b342f67'
+  version '2.86'
+  sha256 'f93f062f069968e2423c18a5ea45bb6a4c74f3b652a5b66170696446b716db16'
 
   # amazonaws.com/sqwarq.com was verified as official when first introduced to the cask
   url 'https://s3.amazonaws.com/sqwarq.com/PublicZips/DetectX.app.zip'
   appcast 'https://s3.amazonaws.com/sqwarq.com/AppCasts/detectx.xml',
-          checkpoint: 'c7ddf9e1fe2d6b42bf5dcb9d451741a64bb78f86684a9c9e52dea1b3de0c8915'
+          checkpoint: 'de70041dda4fcf77d5e682db2cb4a6d1ff04370911f4518a7f009dd3bd8fe8ff'
   name 'DetectX'
   homepage 'https://sqwarq.com/detectx/'
 
@@ -13,9 +13,9 @@ cask 'detectx' do
 
   app 'DetectX.app'
 
-  zap delete: [
-                '~/Library/Application Support/com.sqwarq.DetectX',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sqwarq.detectx.sfl',
-                '~/Library/Preferences/com.sqwarq.DetectX.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/com.sqwarq.DetectX',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.sqwarq.detectx.sfl*',
+               '~/Library/Preferences/com.sqwarq.DetectX.plist',
+             ]
 end

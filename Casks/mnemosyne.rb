@@ -1,13 +1,13 @@
 cask 'mnemosyne' do
-  version '2.4'
-  sha256 'a1b107bfa61ea7b0f2d370446a324b56a742238f00d9a0f6ee1f6525e7f38222'
+  version '2.6'
+  sha256 'e4a965c4cdc8478baea0be940e333b83016deff3106b3d7f3fb993c479b45a20'
 
   # sourceforge.net/mnemosyne-proj was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/mnemosyne-proj/mnemosyne/mnemosyne-#{version}/Mnemosyne-#{version}.dmg"
   appcast 'https://sourceforge.net/projects/mnemosyne-proj/rss?path=/mnemosyne',
-          checkpoint: '6f8a58f877ca91c33af0d6e275d1e803d93a4e0dd93827954dfa352424fc4c04'
+          checkpoint: '5c80600a3f49a12dc1db4aa65b048c306d04af6928b4027aa984f2cde627fb75'
   name 'Mnemosyne'
-  homepage 'http://mnemosyne-proj.org/'
+  homepage 'https://mnemosyne-proj.org/'
 
   app 'Mnemosyne.app'
 end

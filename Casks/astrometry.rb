@@ -1,6 +1,6 @@
 cask 'astrometry' do
-  version '1.2'
-  sha256 'cd3ca2d2e18d065e7db5741acb67f85407dfe839ad50720cba7aa11fc14f5366'
+  version '1.6'
+  sha256 '601ccb352c07c46f97ab14b19308b669e218b433b9bc7eeafb2cdd6c5ed63391'
 
   url "http://download.cloudmakers.eu/Astrometry_#{version}.dmg"
   name 'Astrometry'

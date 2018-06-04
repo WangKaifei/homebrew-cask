@@ -1,6 +1,6 @@
 cask 'beatunes' do
-  version '4.6.11'
-  sha256 '9e774d7113a9d14d7d2ccfa981bcd809c46b21ea9d49261bf0d1957c319e69c5'
+  version '5.1.6'
+  sha256 '2219db16c888c0e38d3dba34d2533126fe80314926b7d2c07ae1757112f75ddf'
 
   url "http://coxy.beatunes.com/download/beaTunes-#{version.dots_to_hyphens}.dmg"
   name 'beaTunes'
@@ -10,10 +10,10 @@ cask 'beatunes' do
 
   app "beaTunes#{version.major}.app"
 
-  zap delete: [
-                '~/Library/Application Support/beaTunes',
-                '~/Library/Caches/beaTunes',
-                '~/Library/Logs/beaTunes',
-                '~/Library/Preferences/com.tagtraum.beatunes.plist',
-              ]
+  zap trash: [
+               '~/Library/Application Support/beaTunes',
+               '~/Library/Caches/beaTunes',
+               '~/Library/Logs/beaTunes',
+               '~/Library/Preferences/com.tagtraum.beatunes.plist',
+             ]
 end

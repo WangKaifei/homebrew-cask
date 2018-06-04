@@ -1,11 +1,11 @@
 cask 'blocs' do
-  version '2.3.0'
-  sha256 'b8e88252cbfb6b08d60c8317ddd81f5eca67811d215f8dcb0f9e3bdf6cee18fa'
+  version '2.6.0'
+  sha256 'a3488866a28e8b36cc856df0de85044fa5f6975ff0f0f9f86b4e3c66f5073964'
 
   # uistore.io was verified as official when first introduced to the cask
   url "http://downloads.uistore.io/blocs/version-#{version.major}/Blocs.zip"
   appcast "https://uistore.io/blocs/#{version.major}.0/info.xml",
-          checkpoint: 'fb118d92f6c175170bc467a63c9eb3008c82bbbac7475a365b98a54a8f0fb635'
+          checkpoint: 'ef341b2eb12b43da9231b216c377af66a2c5e0b9c1749979dc8af40099617b5a'
   name 'Blocs'
   homepage 'https://blocsapp.com/'
 

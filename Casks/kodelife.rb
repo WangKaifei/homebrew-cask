@@ -1,14 +1,15 @@
 cask 'kodelife' do
-  version '0.4.1'
-  sha256 'cd75661db4496b160109589ab05a83c6808c4d810778c573584f70f24229c429'
+  version '0.5.6.0'
+  sha256 'd4c24c7adb722ac48760ed03dda711d268bfe2ca717f42812ede64adf00e7a34'
 
-  url "http://hexler.net/pub/kodelife/kodelife-#{version}-osx.zip"
-  appcast 'http://hexler.net/pub/kodelife/appcast.hex',
-          checkpoint: '72aaf0fc5ec5c8f865026db8a44ad6f574a6a5444986c64375a9bb95d3961853'
+  url "https://hexler.net/pub/kodelife/kodelife-#{version}-osx.zip"
+  appcast 'https://hexler.net/pub/kodelife/appcast.hex',
+          checkpoint: '54380147b0e6de7730cc7f7a557fdc328a62227f60649cf58225c38d0fe1b010'
   name 'KodeLife'
   homepage 'https://hexler.net/software/kodelife'
 
   auto_updates true
+  depends_on macos: '>= :mavericks'
 
   app 'KodeLife.app'
 end

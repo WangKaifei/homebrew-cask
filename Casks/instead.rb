@@ -1,11 +1,11 @@
 cask 'instead' do
-  version '2.4.1'
-  sha256 'c9e7af048230da3f1390118a55ab13fa02a6915c0d15c1290cbb2d34a4ea176f'
+  version '3.2.1'
+  sha256 '34ca0aac226f4c2f87cb0db4217e09c8deed2a29c6d7d67871bef1087796caa7'
 
-  # sourceforge.net/instead was verified as official when first introduced to the cask
-  url "https://downloads.sourceforge.net/instead/instead/#{version}/Instead-#{version}.dmg"
-  appcast 'https://sourceforge.net/projects/instead/rss?path=/instead',
-          checkpoint: '6941875157d2644ec6dac6163e6c4a60b130a585f6b38e1e79de46d8d0307d0a'
+  # github.com/instead-hub/instead was verified as official when first introduced to the cask
+  url "https://github.com/instead-hub/instead/releases/download/#{version}/Instead-#{version}.dmg"
+  appcast 'https://github.com/instead-hub/instead/releases.atom',
+          checkpoint: '06653147040958627385de015edd4f9c18d94e9c9c88b1ee2f449845cd92f32a'
   name 'INSTEAD'
   homepage 'https://instead.syscall.ru/index.html'
 

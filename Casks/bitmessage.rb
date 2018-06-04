@@ -1,11 +1,11 @@
 cask 'bitmessage' do
-  version '0.6.1'
-  sha256 '401571b671a75dfdc94587cb3790443165cff86a122b919ad08e51c2d088ad1f'
+  version '0.6.3.2'
+  sha256 '40a78384a7a0613333dd76aaafc8ebeb08eb1ef02fceb0925763ce289ec5888b'
 
   # github.com/Bitmessage/PyBitmessage was verified as official when first introduced to the cask
-  url "https://github.com/Bitmessage/PyBitmessage/releases/download/v#{version}/bitmessage-v#{version}.dmg"
+  url "https://github.com/Bitmessage/PyBitmessage/releases/download/#{version}/bitmessage-v#{version}.dmg"
   appcast 'https://github.com/Bitmessage/PyBitmessage/releases.atom',
-          checkpoint: 'ff09661559521f36a3a2b74d3cadf48cf2f469db47f4a46d6be4639ad217c9da'
+          checkpoint: '57d6ff89a3322acbbdfc91a66cb9c8d24bbd7e88d07b069d089ff2623e021823'
   name 'Bitmessage'
   homepage 'https://bitmessage.org/'
 

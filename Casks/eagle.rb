@@ -1,13 +1,12 @@
 cask 'eagle' do
-  version '8.0'
-  sha256 'bc63e9a3f84fe17ba86bef179f110c77583d19fc0d25876aa7c4c67b0fe3ea61'
+  version '9.0.1'
+  sha256 '7b3eff937b72e34c375e07593e18bd22b09070d2eb8b3b711c20e3d171484a4e'
 
-  url "http://trial2.autodesk.com/NET17SWDLD/2017/EGLPRM/ESD/Autodesk_EAGLE_#{version}_English_Mac_64bit.pkg"
-  name 'CadSoft EAGLE'
-  homepage 'http://www.autodesk.com/products/eagle/overview'
+  url "https://eagle-updates.circuits.io/downloads/#{version.dots_to_underscores}/Autodesk_EAGLE_#{version}_English_Mac_64bit.pkg"
+  name 'Autodesk EAGLE'
+  homepage 'https://circuits.io/'
 
   pkg "Autodesk_EAGLE_#{version}_English_Mac_64bit.pkg"
 
-  uninstall pkgutil: 'com.Autodesk.eagle',
-            delete:  "/Applications/EAGLE-#{version}"
+  uninstall pkgutil: 'com.Autodesk.eagle'
 end

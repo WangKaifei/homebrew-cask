@@ -1,18 +1,10 @@
 cask 'virtualbox' do
-  if MacOS.version <= :lion
-    version '4.3.40-110317'
-    sha256 'eb70fc0f36844ced6dc7deeb30397866fbaffb4a8dfb6071b047e943cae6a312'
-  elsif MacOS.version == :mountain_lion
-    version '5.0.32-112930'
-    sha256 'c693083f1df96a95d5faf794b22737df103973de3e0d89f04734d401962f81cf'
-  else
-    version '5.1.14-112924'
-    sha256 'f12ed3b1f98c45074e52742d1006c418acd22d0d91e8a6fb6f7b3121c21ce998'
-  end
+  version '5.2.12,122591'
+  sha256 'b757e1df9fc73ccc1e98776c0ec45f48d2950bb1f5f91e25f9d5c43fd8774b05'
 
-  url "http://download.virtualbox.org/virtualbox/#{version.sub(%r{-.*}, '')}/VirtualBox-#{version}-OSX.dmg"
-  appcast 'http://download.virtualbox.org/virtualbox/LATEST.TXT',
-          checkpoint: '69ff967697383e82adfccadcc6e493391648adb709c427d4fef9ded116c08798'
+  url "https://download.virtualbox.org/virtualbox/#{version.before_comma}/VirtualBox-#{version.before_comma}-#{version.after_comma}-OSX.dmg"
+  appcast 'https://download.virtualbox.org/virtualbox/LATEST.TXT',
+          checkpoint: 'ca92bf35359ba81093787992fa315c6458297fc132425d6d914552c85e658795'
   name 'Oracle VirtualBox'
   homepage 'https://www.virtualbox.org/'
 
@@ -20,19 +12,24 @@ cask 'virtualbox' do
 
   uninstall script:  {
                        executable: 'VirtualBox_Uninstall.tool',
-                       args:       %w[--unattended],
+                       args:       ['--unattended'],
+                       sudo:       true,
                      },
             pkgutil: 'org.virtualbox.pkg.*'
 
-  zap delete: [
-                '/Library/Application Support/VirtualBox',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualbox.sfl',
-                '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualboxvm.sfl',
-                '~/Library/VirtualBox',
-                '~/Library/Preferences/org.virtualbox.app.VirtualBox.plist',
-                '~/Library/Preferences/org.virtualbox.app.VirtualBoxVM.plist',
-                '~/Library/Saved Application State/org.virtualbox.app.VirtualBox.savedState',
-                '~/Library/Saved Application State/org.virtualbox.app.VirtualBoxVM.savedState',
-              ],
-      rmdir:  '~/VirtualBox VMs'
+  zap trash: [
+               '/Library/Application Support/VirtualBox',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualbox.sfl*',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualboxvm.sfl*',
+               '~/Library/VirtualBox',
+               '~/Library/Preferences/org.virtualbox.app.VirtualBox.plist',
+               '~/Library/Preferences/org.virtualbox.app.VirtualBoxVM.plist',
+               '~/Library/Saved Application State/org.virtualbox.app.VirtualBox.savedState',
+               '~/Library/Saved Application State/org.virtualbox.app.VirtualBoxVM.savedState',
+             ],
+      rmdir: '~/VirtualBox VMs'
+
+  caveats do
+    kext
+  end
 end

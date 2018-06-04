@@ -1,13 +1,19 @@
 cask 'wifi-explorer' do
-  version '2.2'
-  sha256 '8048497e3d260fd25145d292712b796b0089a288a6e9b1f08cd63a87795c2921'
+  version '2.4.3'
+  sha256 'fe375b2c8321b347984929b8d5aa22a42b610a8d027ec503205802203f29cf41'
 
-  # s3.amazonaws.com/adriangranados was verified as official when first introduced to the cask
-  url 'https://s3.amazonaws.com/adriangranados/wifiexplorer.zip'
+  url 'https://www.adriangranados.com/downloads/wifiexplorer.zip'
   appcast 'https://www.adriangranados.com/appcasts/wifiexplorercast.xml',
-          checkpoint: 'f4927495fab130078eca3eedfd7fea32122d724d95503c3d7a8a7105aea64230'
+          checkpoint: '4a8c3d58761746b7bffed335aa577481b046f8931b64571d1b66be5125544632'
   name 'WiFi Explorer'
   homepage 'https://www.adriangranados.com/apps/wifi-explorer'
 
   app 'WiFi Explorer.app'
+
+  zap trash: [
+               '~/Library/Caches/wifiexplorer',
+               '~/Library/Cookies/wifiexplorer.binarycookies',
+               '~/Library/Preferences/wifiexplorer.plist',
+               '~/Library/Saved Application State/wifiexplorer.savedState',
+             ]
 end

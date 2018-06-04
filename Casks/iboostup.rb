@@ -1,10 +1,10 @@
 cask 'iboostup' do
-  version '5.6.1'
-  sha256 'a502070ce45c459e517c5175eb847b4e00b0e26e0baeda71128ad49b5ac04f9b'
+  version '5.9.91'
+  sha256 '44d7c589f2cfd715ad00a3797d72878903aa2b87c5d5a9a86f79df2f412379ae'
 
   url 'https://www.iboostup.com/iboostup.dmg'
   appcast 'https://www.iboostup.com/updates',
-          checkpoint: 'ef359e1ee2d461e285517fc50650db354234423fb5a5a70b3dd0e81bae19414d'
+          checkpoint: '428df2d5123c995b6dea94baed9a71eefcdd689fcaa3da2973bda5d424de5a93'
   name 'iBoostUp'
   homepage 'https://www.iboostup.com/'
 

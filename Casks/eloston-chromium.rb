@@ -1,20 +1,20 @@
 cask 'eloston-chromium' do
-  version '55.0.2883,95-1'
-  sha256 'ce3059098bc77dcc298bf2f81c08bcb541495bdddc3d6a1cc0651fd39ab6f271'
+  version '66.0.3359.139-1'
+  sha256 'f92d0e17bc41ff5ef5f0e7c8e4f1a5adf29483998d401a0f0e5f4d003a1cc672'
 
-  # github.com/ungoogled-software/ungoogled-chromium-binaries was verified as official when first introduced to the cask
-  url "https://github.com/ungoogled-software/ungoogled-chromium-binaries/releases/download/#{version.before_comma}.#{version.after_comma.split('-')[0]}/ungoogled-chromium_#{version.before_comma}.#{version.after_comma}_macos.dmg"
-  appcast 'https://github.com/ungoogled-software/ungoogled-chromium-binaries/releases.atom',
-          checkpoint: 'dbb87319a87c7ccf876d7df29abf5dbbf95c97935855238aafe9daabd093fd9a'
+  # github.com/tectiv3/ungoogled-chromium-binaries was verified as official when first introduced to the cask
+  url "https://github.com/tectiv3/ungoogled-chromium-binaries/releases/download/#{version}/ungoogled-chromium_#{version}_macos.dmg"
+  appcast 'https://ungoogled-software.github.io/ungoogled-chromium-binaries/releases/macos/',
+          checkpoint: '8b54e121c3e3de51e90ac1bedf0ec03324958bf8ccaf0d17c62387d9a4da6263'
   name 'Ungoogled Chromium'
   homepage 'https://ungoogled-software.github.io/ungoogled-chromium-binaries/'
 
   app 'Chromium.app'
 
-  zap delete: [
-                '~/Library/Preferences/org.chromium.Chromium.plist',
-                '~/Library/Caches/Chromium',
-                '~/Library/Application Support/Chromium',
-                '~/Library/Saved Application State/org.chromium.Chromium.savedState',
-              ]
+  zap trash: [
+               '~/Library/Preferences/org.chromium.Chromium.plist',
+               '~/Library/Caches/Chromium',
+               '~/Library/Application Support/Chromium',
+               '~/Library/Saved Application State/org.chromium.Chromium.savedState',
+             ]
 end

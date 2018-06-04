@@ -10,4 +10,9 @@ cask 'gitifier' do
   homepage 'https://psionides.github.io/Gitifier/'
 
   app 'Gitifier.app'
+
+  zap trash: [
+               '~/Library/Caches/net.psionides.Gitifier',
+               '~/Library/Preferences/net.psionides.Gitifier.plist',
+             ]
 end

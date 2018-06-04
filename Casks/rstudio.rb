@@ -1,6 +1,6 @@
 cask 'rstudio' do
-  version '1.0.136'
-  sha256 '0345818c518bc668e2939e36dcada7572730bdc86cd1b40e1b7d6eee3cb481e2'
+  version '1.1.453'
+  sha256 '3aecb9164b3e07268d00a83ebf9e7f31515374d8d0107b904c6a8178c962b8d1'
 
   # rstudio.org was verified as official when first introduced to the cask
   url "https://download1.rstudio.org/RStudio-#{version}.dmg"
@@ -9,14 +9,22 @@ cask 'rstudio' do
 
   app 'RStudio.app'
 
-  zap delete: '~/.rstudio-desktop'
+  zap trash: '~/.rstudio-desktop'
 
-  caveats <<-EOS.undent
+  caveats <<~EOS
     #{token} depends on R.
-    There are different ways to satisfy that dependency and we don’t want to impose one, so it is up to you to satisfy it.
-    We suggest you do so by running one of:
+    There are different ways to satisfy that dependency. RStudio recommends installing R from The R Project, which is required to install binary R packages, without needing to compile packages from source.
 
-      brew install homebrew/science/r
+    https://support.rstudio.com/hc/en-us/articles/217799238
+
+    To install the R Project package run:
+
       brew cask install r-app
+
+    Alternative ways to satisfy the dependency are:
+
+      brew install r
+
+    This requires compiling R packages from source.
   EOS
 end

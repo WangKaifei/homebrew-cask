@@ -1,11 +1,11 @@
 cask 'wings3d' do
-  version '2.1.5'
-  sha256 '4677a0f744378e88125ffe1f3595170cb77ddb9ff94cdd594e3578a0ca28bc73'
+  version '2.1.7'
+  sha256 '96556931eff7f1cec26ad3b9b944951b7ae9ed2e070bd724334c2827d11498bc'
 
   # sourceforge.net/wings was verified as official when first introduced to the cask
   url "https://downloads.sourceforge.net/wings/wings-#{version}-macosx.dmg"
   appcast 'https://sourceforge.net/projects/wings/rss',
-          checkpoint: '38311ee2ef58ca6eabc963cef085649faf357fd90662208308a572048d64920c'
+          checkpoint: 'd7efb5ad89f499c2d6fd027462f26ec4b1927b2a9761bbe40a07a31fb1640ac3'
   name 'Wings 3D'
   homepage 'http://www.wings3d.com/'
 

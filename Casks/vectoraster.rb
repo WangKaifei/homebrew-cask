@@ -1,16 +1,18 @@
 cask 'vectoraster' do
-  version '7.0.5'
-  sha256 '99b8b83121c8c4eb50f790ba48a9f21ca1bddf6c14fe1a80014a014ea7f876ad'
+  version '7.2.6'
+  sha256 '4998eeeb0660df95d73c903c23292fa7135b2f7866e4933f102a3b9ae627e9a1'
 
-  url "https://www.lostminds.com/downloads/dl.php?vectoraster#{version.major}.zip"
+  url "https://www.lostminds.com/downloads/vectoraster#{version.major}.dmg"
+  appcast "https://www.lostminds.com/vectoraster#{version.major}/version_history.php",
+          checkpoint: 'fec3dd5b67a68f8a251e5230d06192306c110b0c037b1352ad0771977a4cabfa'
   name 'Vectoraster'
-  homepage 'https://www.lostminds.com/content/product.php?vectoraster6'
+  homepage "https://www.lostminds.com/vectoraster#{version.major}/"
 
-  app "Vectoraster #{version.major}/Vectoraster.app"
+  app 'Vectoraster.app'
 
-  zap delete: [
-                '~/Library/Caches/com.lostminds.Vectoraster',
-                '~/Library/Preferences/com.lostminds.Vectoraster.plist',
-                '~/Library/Application Support/Vectoraster',
-              ]
+  zap trash: [
+               '~/Library/Caches/com.lostminds.Vectoraster',
+               '~/Library/Preferences/com.lostminds.Vectoraster.plist',
+               '~/Library/Application Support/Vectoraster',
+             ]
 end

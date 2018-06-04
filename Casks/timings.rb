@@ -1,10 +1,10 @@
 cask 'timings' do
-  version '3.0.7'
-  sha256 '97a634722d8ae5ee864f1e14514d414011d0731351f61e52e0c1417eabbe6936'
+  version '3.2.3'
+  sha256 '284f9633808170fb630ce1a57482a7a580fecc4575933f9671f570e44d587672'
 
   url "https://mediaatelier.com/Timings#{version.major}/Timings_#{version}.zip"
   appcast "https://mediaatelier.com/Timings#{version.major}/feed.php",
-          checkpoint: '66049e72c581ce312e800aeb1f28775fe50c44d9c4e2c98cad54156afd64d029'
+          checkpoint: '7073236fae20b3db2e6b18e3d696782c36d2b3d97f1575aca9e91e0b7d2d4fb7'
   name 'Timings'
   homepage 'https://www.mediaatelier.com/Timings3/'
 
@@ -12,9 +12,9 @@ cask 'timings' do
 
   app 'Timings.app'
 
-  zap delete: [
-                '~/Library/Preferences/com.mediaateller.Timings.plist',
-                '~/Library/Application Support/Timings',
-                '~/Library/Caches/com.mediaateller.timings',
-              ]
+  zap trash: [
+               '~/Library/Preferences/com.mediaateller.Timings.plist',
+               '~/Library/Application Support/Timings',
+               '~/Library/Caches/com.mediaateller.timings',
+             ]
 end

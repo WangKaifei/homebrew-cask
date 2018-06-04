@@ -1,10 +1,10 @@
 cask 'viscosity' do
-  version '1.6.8'
-  sha256 '9d0b957de7e4a6683f28d67cc05a72e51b4839c3f6ae543855a81d6cc502618f'
+  version '1.7.9'
+  sha256 'fbb7111c59c0b2e5164a520ebf5a49fe5baddaad4314b1d1d1c066f923b501c1'
 
   url "https://swupdate.sparklabs.com/download/mac/release/viscosity/Viscosity%20#{version}.dmg"
   appcast 'https://swupdate.sparklabs.com/appcast/mac/release/viscosity/',
-          checkpoint: '51a48aa7645241737c802a53d35825fb9a85be1d85982d2b4c34e8e0973bafd7'
+          checkpoint: '42e436e3d57dbd738ab898bc9fe10cf499a80f8638885bb8f5f2176bca0428a6'
   name 'Viscosity'
   homepage 'https://www.sparklabs.com/viscosity/'
 
@@ -12,8 +12,18 @@ cask 'viscosity' do
 
   app 'Viscosity.app'
 
-  zap delete: [
-                '~/Library/Application Support/Viscosity',
-                '~/Library/Preferences/com.viscosityvpn.Viscosity.plist',
-              ]
+  uninstall delete:     [
+                          '/Library/Application Support/Viscosity',
+                          '/Library/PrivilegedHelperTools/com.sparklabs.ViscosityHelper',
+                        ],
+            launchctl:  'com.sparklabs.ViscosityHelper',
+            login_item: 'Viscosity',
+            signal:     ['TERM', 'com.viscosityvpn.Viscosity']
+
+  zap trash: [
+               '~/Library/Application Support/Viscosity',
+               '~/Library/Caches/com.viscosityvpn.Viscosity',
+               '~/Library/Cookies/com.viscosityvpn.Viscosity.binarycookies',
+               '~/Library/Preferences/com.viscosityvpn.Viscosity.plist',
+             ]
 end

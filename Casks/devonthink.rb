@@ -1,15 +1,16 @@
 cask 'devonthink' do
-  version '2.9.10'
-  sha256 '7f290e475a00cef898e768c08373f64a956f4050916c109e5460370eb3734caa'
+  version '2.10'
+  sha256 '43c9e2cbef1ae8e8e52d97b54be28b5ce019eaf2615db4921e9736b22c72d4c4'
 
   # amazonaws.com/DTWebsiteSupport was verified as official when first introduced to the cask
   url "https://s3.amazonaws.com/DTWebsiteSupport/download/devonthink/#{version}/DEVONthink_Personal.app.zip"
-  appcast 'http://www.devon-technologies.com/fileadmin/templates/filemaker/sparkle.php?product=217255&format=xml',
-          checkpoint: 'e99ea34791e20fd443982ee8c14eb1d9e65a722d3dac59726dd7929f2a0b46a8'
+  appcast 'https://www.devontechnologies.com/fileadmin/templates/filemaker/sparkle.php?product=217255&format=xml',
+          checkpoint: 'def80fee3b439b2fe71185f3bc35f27aaf0e0987bbd641ba0b34c257720d96ed'
   name 'DEVONthink Personal'
-  homepage 'http://www.devontechnologies.com/products/devonthink/devonthink-personal.html'
+  homepage 'https://www.devontechnologies.com/products/devonthink/devonthink-personal.html'
 
-  depends_on macos: '>= :mountain_lion'
+  auto_updates true
+  depends_on macos: '>= :mavericks'
 
   app 'DEVONthink.app'
 end

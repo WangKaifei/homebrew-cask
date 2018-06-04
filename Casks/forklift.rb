@@ -1,17 +1,36 @@
 cask 'forklift' do
-  version '2.6.6'
-  sha256 '0fa2bb7927d07c0c13b964b517b500ea6a77a6a569becba3ea392b2f82c05fce'
+  version '3.2.2'
+  sha256 '7f968b7d4b1c2be100f7ac26e7d9f3d2b93f109ac1edf5eb6dfab70041e2d277'
 
-  url "http://download.binarynights.com/ForkLift#{version}.zip"
-  appcast "http://update.binarynights.com/ForkLift#{version.major}/update.xml",
-          checkpoint: '06635ed48d05ac9318bcb2f527d848934f7bf32f173cc9aa1a1ee6bbc6c98443'
+  url "https://download.binarynights.com/ForkLift#{version}.zip"
+  appcast "https://updates.binarynights.com/ForkLift#{version.major}/update.xml",
+          checkpoint: 'd79464fa356c95d097c4530778e324c411dedf81b921fc06cd38d4ddfbbeeb53'
   name 'ForkLift'
-  homepage 'https://www.binarynights.com/'
+  homepage 'https://binarynights.com/forklift/'
+
+  auto_updates true
+  depends_on macos: '>= :el_capitan'
 
   app 'ForkLift.app'
 
-  zap delete: [
-                '~/Library/Preferences/com.binarynights.ForkLift2.plist',
-                '~/Library/Caches/com.binarynights.ForkLift2',
-              ]
+  uninstall delete:    '/Library/PrivilegedHelperTools/com.binarynights.ForkLiftHelper',
+            launchctl: [
+                         'com.binarynights.ForkLiftHelper',
+                         'com.binarynights.ForkLiftMini',
+                       ],
+            quit:      [
+                         "com.binarynights.ForkLift-#{version.major}",
+                         'com.binarynights.ForkLiftMini',
+                       ]
+
+  zap trash: [
+               '~/Library/Application Support/ForkLift',
+               "~/Library/Caches/com.binarynights.ForkLift-#{version.major}",
+               "~/Library/Cookies/com.binarynights.ForkLift-#{version.major}.binarycookies",
+               '~/Library/Logs/ForkLift',
+               '~/Library/Logs/ForkLiftMini',
+               "~/Library/Preferences/com.binarynights.ForkLift-#{version.major}.plist",
+               '~/Library/Preferences/com.binarynights.ForkLiftMini.plist',
+               "~/Library/Saved Application State/com.binarynights.ForkLift-#{version.major}.savedState",
+             ]
 end

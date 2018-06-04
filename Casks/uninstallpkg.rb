@@ -1,20 +1,21 @@
 cask 'uninstallpkg' do
-  version '1.0.23'
-  sha256 'ddfcaedd4aa4880f2db7929212ca68add94e9bb2bc57d637bead0d0f6aa62038'
+  version '1.1.5'
+  sha256 '8a92278d73334007d1df581584f7364adede9b74d4d46580055a435484c459cd'
 
-  url 'https://www.corecode.io/downloads/uninstallpkg_latest.zip'
+  url "https://www.corecode.io/downloads/uninstallpkg_#{version}.zip"
   appcast 'https://www.corecode.io/uninstallpkg/uninstallpkg.xml',
-          checkpoint: '0a390467cb94ce7e1fe0d24d6188525d85808564505bdd3eed685debdeec52c2'
+          checkpoint: '86d3ecc197856eb5c951be28803eca1c1d319fd255ed7ef6981d66547a31a678'
   name 'UninstallPKG'
   homepage 'https://www.corecode.io/uninstallpkg/'
 
   app 'UninstallPKG.app'
 
-  zap delete: [
-                '~/Library/Preferences/com.corecode.UninstallPKG.plist',
-                '~/Library/Application Support/UninstallPKG/',
-                '~/Library/Saved Application State/com.corecode.UninstallPKG.savedState/',
-                '/Library/PrivilegedHelperTools/com.corecode.UninstallPKGDeleteHelper',
-                '/Library/LaunchDaemons/com.corecode.UninstallPKGDeleteHelper.plist',
-              ]
+  uninstall delete:    '/Library/PrivilegedHelperTools/com.corecode.UninstallPKGDeleteHelper',
+            launchctl: 'com.corecode.UninstallPKGDeleteHelper'
+
+  zap trash: [
+               '~/Library/Application Support/UninstallPKG',
+               '~/Library/Preferences/com.corecode.UninstallPKG.plist',
+               '~/Library/Saved Application State/com.corecode.UninstallPKG.savedState',
+             ]
 end

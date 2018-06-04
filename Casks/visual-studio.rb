@@ -1,13 +1,28 @@
 cask 'visual-studio' do
-  version '2017-01-14'
-  sha256 '44c7952dd2c8b44b8715f8bb33868448a3433506a8156ce5513903f7cc154d51'
+  version '7.5.2.40'
+  sha256 '5273cc69193934e9e44d5243b18b58cd31060ceb21b8646fddcd228a8c31f56c'
 
-  # xamarin.azureedge.net was verified as official when first introduced to the cask
-  url "https://xamarin.azureedge.net//VsMacInstaller/#{version}/VisualStudioforMacPreviewInstaller.dmg"
+  # dl.xamarin.com/VsMac was verified as official when first introduced to the cask
+  url "https://dl.xamarin.com/VsMac/VisualStudioForMac-#{version}.dmg"
+  appcast 'https://xampubdl.blob.core.windows.net/static/installer_assets/v3/vsmac/Mac/Universal/InstallationManifest.xml',
+          checkpoint: '90e28111c98e8261b07800d9b33a6b09c6af8f51c315d5976a586bd4c922bc00'
   name 'Visual Studio for Mac'
   homepage 'https://www.visualstudio.com/vs/visual-studio-mac/'
 
-  installer manual: 'Install Visual Studio for Mac Preview.app'
+  depends_on cask: 'mono-mdk'
 
-  uninstall delete: '/Applications/Visual Studio.app'
+  app 'Visual Studio.app'
+
+  zap trash: [
+               '/Applications/Xamarin Workbooks.app',
+               '/Applications/Xamarin Profiler.app',
+               '~/Library/Application Support/VisualStudio',
+               '~/Library/Application Support/CrashReporter/VisualStudio*',
+               '~/Library/Caches/VisualStudio',
+               '~/Library/Logs/VisualStudio',
+               '~/Library/Preferences/Visual*Studio',
+               '~/Library/Preferences/Xamarin',
+               '~/Library/Developer/Xamarin',
+               '~/Library/VisualStudio',
+             ]
 end

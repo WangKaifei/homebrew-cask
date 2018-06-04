@@ -1,11 +1,11 @@
 cask 'angry-ip-scanner' do
-  version '3.5'
-  sha256 '74b61c34014cb422b0eee3c53b32cde42a911c53bdfe80e074546fb26376628b'
+  version '3.5.2'
+  sha256 '461c507d612d0d88c91ef4dde79f266ecbaa3b5518df24597b8b40af6dc90ddb'
 
-  # github.com/angryziber/ipscan was verified as official when first introduced to the cask
-  url "https://github.com/angryziber/ipscan/releases/download/#{version}/ipscan-mac-#{version}.zip"
-  appcast 'https://github.com/angryziber/ipscan/releases.atom',
-          checkpoint: '2390c686f215e80608734fbf5e1b6747968205633f72f2347d16ba307239d006'
+  # github.com/angryip/ipscan was verified as official when first introduced to the cask
+  url "https://github.com/angryip/ipscan/releases/download/#{version}/ipscan-mac-#{version}.zip"
+  appcast 'https://github.com/angryip/ipscan/releases.atom',
+          checkpoint: 'e02fcc8d4e65077392bb92aefc66eb7876d6f8c52b90641362ddff5355104ee1'
   name 'Angry IP Scanner'
   homepage 'http://angryip.org/'
 

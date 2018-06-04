@@ -1,21 +1,23 @@
 cask 'the-unarchiver' do
-  version '3.11.1'
-  sha256 '2b9e1c0f6bcad958c19bfa0b5b1c59ad0681574100918004c0bcad2e43dc0761'
+  version '3.11.6,119:1527191272'
+  sha256 '78becd148d5f3cd9a1570751786f364399062b43f576e5a78d9aec3b9450b942'
 
-  url "https://unarchiver.c3.cx/downloads/TheUnarchiver#{version}.zip"
-  appcast 'https://unarchiver.c3.cx/updates.rss',
-          checkpoint: '12b3e96559528c84b7353ce25f66d685b3813a4f86b3802835988f9b90084228'
+  # devmate.com/com.macpaw.site.theunarchiver was verified as official when first introduced to the cask
+  url "https://dl.devmate.com/com.macpaw.site.theunarchiver/#{version.after_comma.before_colon}/#{version.after_colon}/TheUnarchiver-#{version.after_comma.before_colon}.zip"
+  appcast 'https://updates.devmate.com/com.macpaw.site.theunarchiver.xml',
+          checkpoint: '0179cd684e073cdc32de47a7d653059e8ede3ff69abfd7140393012c7a5543f4'
   name 'The Unarchiver'
-  homepage 'https://unarchiver.c3.cx/unarchiver'
+  homepage 'https://theunarchiver.com/'
 
   auto_updates true
   depends_on macos: '>= :lion'
 
   app 'The Unarchiver.app'
 
-  zap delete: [
-                '~/Library/Caches/cx.c3.theunarchiver',
-                '~/Library/Cookies/cx.c3.theunarchiver.binarycookies',
-                '~/Library/Preferences/cx.c3.theunarchiver.plist',
-              ]
+  zap trash: [
+               '~/Library/Caches/cx.c3.theunarchiver',
+               '~/Library/Cookies/cx.c3.theunarchiver.binarycookies',
+               '~/Library/Preferences/cx.c3.theunarchiver.plist',
+               '~/Library/Saved Application State/cx.c3.theunarchiver.savedState',
+             ]
 end

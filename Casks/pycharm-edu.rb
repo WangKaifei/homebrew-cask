@@ -1,10 +1,10 @@
 cask 'pycharm-edu' do
-  version '3.5'
-  sha256 '69b59880aa93e8329f7fee1b1696ba14d8554e3d6c3ddd9f5f150844b4258534'
+  version '2018.1.2,181.5087.43'
+  sha256 '16e275118bad9e5efb0b1c2608ed108b980a4c08972019e66e27f79573f827d5'
 
-  url "https://download.jetbrains.com/python/pycharm-edu-#{version}.dmg"
+  url "https://download.jetbrains.com/python/pycharm-edu-#{version.before_comma}.dmg"
   appcast 'https://data.services.jetbrains.com/products/releases?code=PCE&latest=true&type=release',
-          checkpoint: 'e62e37150fe377723163c8f000f51edd6c05713d9039e5c10d00a6013c2f3fbb'
+          checkpoint: 'b667f3e263ae31a0d9659ab5af02c666a0b6b78fcf790a798470086149c71046'
   name 'Jetbrains PyCharm Educational Edition'
   name 'PyCharm Edu'
   homepage 'https://www.jetbrains.com/pycharm-edu/'
@@ -13,10 +13,14 @@ cask 'pycharm-edu' do
 
   app 'PyCharm Edu.app'
 
-  zap delete: [
-                "~/Library/Preferences/PyCharmEdu#{version.major_minor.no_dots}",
-                "~/Library/Application Support/PyCharmEdu#{version.major_minor.no_dots}",
-                "~/Library/Caches/PyCharmEdu#{version.major_minor.no_dots}",
-                "~/Library/Logs/PyCharmEdu#{version.major_minor.no_dots}",
-              ]
+  uninstall_postflight do
+    ENV['PATH'].split(File::PATH_SEPARATOR).map { |path| File.join(path, 'charm') }.each { |path| File.delete(path) if File.exist?(path) && File.readlines(path).grep(%r{# see com.intellij.idea.SocketLock for the server side of this interface}).any? }
+  end
+
+  zap trash: [
+               "~/Library/Application Support/PyCharmEdu#{version.major_minor}",
+               "~/Library/Caches/PyCharmEdu#{version.major_minor}",
+               "~/Library/Logs/PyCharmEdu#{version.major_minor}",
+               "~/Library/Preferences/PyCharmEdu#{version.major_minor}",
+             ]
 end

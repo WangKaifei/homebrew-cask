@@ -1,8 +1,8 @@
 cask 'zoomus' do
-  version :latest
-  sha256 :no_check
+  version '4.1.25233.0525'
+  sha256 '858fbe6a0e89a47403578aa4fa462f591ab9f0f158f8800ee810b7fcc0a2f7ad'
 
-  url 'https://zoom.us/client/latest/zoomusInstaller.pkg'
+  url "https://www.zoom.us/client/#{version}/zoomusInstaller.pkg"
   name 'Zoom.us'
   homepage 'https://www.zoom.us/'
 
@@ -12,12 +12,15 @@ cask 'zoomus' do
 
   uninstall delete: '/Applications/zoom.us.app'
 
-  zap       delete: [
-                      '~/Desktop/Zoom',
-                      '~/Library/Internet Plug-Ins/ZoomUsPlugIn.plugin',
-                      '~/Library/Preferences/us.zoom.xos.plist',
-                      '~/Library/Application Support/zoom.us',
-                      '~/Library/Caches/us.zoom.xos',
-                      '~/Library/Logs/zoom.us',
-                    ]
+  zap trash: [
+               '~/Desktop/Zoom',
+               '~/Library/Application Support/zoom.us',
+               '~/Library/Caches/us.zoom.xos',
+               '~/Library/Internet Plug-Ins/ZoomUsPlugIn.plugin',
+               '~/Library/Logs/zoom.us',
+               '~/Library/Logs/zoominstall.log',
+               '~/Library/Preferences/ZoomChat.plist',
+               '~/Library/Preferences/us.zoom.xos.plist',
+               '~/Library/Saved Application State/us.zoom.xos.savedState',
+             ]
 end

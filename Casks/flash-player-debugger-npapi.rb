@@ -1,11 +1,11 @@
 cask 'flash-player-debugger-npapi' do
-  version '24.0.0.221'
-  sha256 '3fa7c70193efb98bbccab27ce4e646e79d108f15093fa79f3ff70ba294537e4d'
+  version '29.0.0.171'
+  sha256 'fd1db79bc5b9cc58753722ee34299d3103679c5e1857a2e57a1fe999fb843885'
 
   # macromedia.com was verified as official when first introduced to the cask
   url "https://fpdownload.macromedia.com/pub/flashplayer/updaters/#{version.major}/flashplayer_#{version.major}_plugin_debug.dmg"
   appcast 'http://fpdownload2.macromedia.com/get/flashplayer/update/current/xml/version_en_mac_pl.xml',
-          checkpoint: 'b07017a15c35b22a55ddc34fe87200e707c39d98facfdde2b331860d2fe7916f'
+          checkpoint: 'a8b1088272513abecdf52195eed55c7e5247ec8bc82de741c3aa1060099220be'
   name 'Adobe Flash Player NPAPI (plugin for Safari and Firefox) content debugger'
   homepage 'https://www.adobe.com/support/flashplayer/debug_downloads.html'
 
@@ -14,8 +14,8 @@ cask 'flash-player-debugger-npapi' do
   uninstall pkgutil: 'com.adobe.pkg.FlashPlayer',
             delete:  '/Library/Internet Plug-Ins/Flash Player.plugin'
 
-  zap       delete: [
-                      '~/Library/Caches/Adobe/Flash Player',
-                      '~/Library/Logs/FlashPlayerInstallManager.log',
-                    ]
+  zap trash: [
+               '~/Library/Caches/Adobe/Flash Player',
+               '~/Library/Logs/FlashPlayerInstallManager.log',
+             ]
 end

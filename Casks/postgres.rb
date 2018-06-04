@@ -1,11 +1,11 @@
 cask 'postgres' do
-  version '2.0.2'
-  sha256 '16f962979a12529416ac18ae20a8130397e9d099d1846e83d8e463b716c99148'
+  version '2.1.4'
+  sha256 'f035d6df7dbc99988c8f418888657b0f7a09c3654f7a692ca47c42e9ffb047bc'
 
   # github.com/PostgresApp/PostgresApp was verified as official when first introduced to the cask
   url "https://github.com/PostgresApp/PostgresApp/releases/download/v#{version}/Postgres-#{version}.dmg"
   appcast 'https://github.com/PostgresApp/PostgresApp/releases.atom',
-          checkpoint: '00a7677b5ac292d1833dde2dcaf89f8c791d56546f6ea077ac3f8fcc44fd0e2d'
+          checkpoint: 'f713d7de4a5ea404e869daefe965f564b37f059bbcb80ec91cd68a58fc527d0b'
   name 'Postgres'
   homepage 'https://postgresapp.com/'
 
@@ -13,11 +13,16 @@ cask 'postgres' do
 
   app 'Postgres.app'
 
-  zap delete: [
-                '~/Library/Application Support/Postgres',
-                "~/Library/Caches/com.postgresapp.Postgres#{version.major}",
-                "~/Library/Cookies/com.postgresapp.Postgres#{version.major}.binarycookies",
-                "~/Library/LaunchAgents/com.postgresapp.Postgres#{version.major}LoginHelper.plist",
-                "~/Library/Preferences/com.postgresapp.Postgres#{version.major}.plist",
-              ]
+  uninstall launchctl: "com.postgresapp.Postgres#{version.major}LoginHelper",
+            quit:      [
+                         "com.postgresapp.Postgres#{version.major}",
+                         "com.postgresapp.Postgres#{version.major}MenuHelper",
+                       ]
+
+  zap trash: [
+               '~/Library/Application Support/Postgres',
+               "~/Library/Caches/com.postgresapp.Postgres#{version.major}",
+               "~/Library/Cookies/com.postgresapp.Postgres#{version.major}.binarycookies",
+               "~/Library/Preferences/com.postgresapp.Postgres#{version.major}.plist",
+             ]
 end

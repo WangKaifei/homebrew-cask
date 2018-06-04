@@ -1,11 +1,11 @@
 cask 'nucleo' do
-  version '1.0.6'
-  sha256 '12488166734d96bdc43faf6bfac156def05ad5701ee827dfd49245ba57c04b23'
+  version '2.4.0'
+  sha256 '788fda7af0d2163abc7d48ebafc8821e6696c83d2145e40044054c22eb87bde7'
 
-  # dl.devmate.com was verified as official when first introduced to the cask
-  url 'https://dl.devmate.com/co.ambercreative.Nucleoapp/Nucleo.zip'
-  appcast 'https://updates.devmate.com/co.ambercreative.Nucleoapp.xml',
-          checkpoint: '77915ed41d2083508e6fe6ea299afc5af542bef273b9fe521830e69c65d2db0f'
+  # s3-us-west-2.amazonaws.com/nucleo-app-releases was verified as official when first introduced to the cask
+  url "https://s3-us-west-2.amazonaws.com/nucleo-app-releases/mac/Nucleo_#{version}.zip"
+  appcast 'https://nucleoapp.com/updates',
+          checkpoint: '6dd9f2ac56b0e6c5ba62212485a771b84abee0495842b9e56d462aca7f9104f0'
   name 'Nucleo'
   homepage 'https://nucleoapp.com/'
 

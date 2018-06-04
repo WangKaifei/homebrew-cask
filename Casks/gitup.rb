@@ -1,11 +1,11 @@
 cask 'gitup' do
-  version '1.0.6'
-  sha256 '420127192b63adfbd6b907c17a4934ffacffe856409dfb53b0696346cfb091d2'
+  version '1.0.11'
+  sha256 '3cd4b67bd76cdcec924895d69f6e867233bcc026fee5507fce43333e8b47fb4d'
 
   # s3-us-west-2.amazonaws.com/gitup-builds was verified as official when first introduced to the cask
   url 'https://s3-us-west-2.amazonaws.com/gitup-builds/stable/GitUp.zip'
   appcast 'https://github.com/git-up/GitUp/releases.atom',
-          checkpoint: '094085cc569cb42d40e12536f817c88934fd04cdea8cd1ad275f88d418b9298e'
+          checkpoint: '8af6cd118a5e855af3afa7468596b32319ed9a4b810c6ffe0145b57bdff6eaaa'
   name 'GitUp'
   homepage 'http://gitup.co/'
 
@@ -14,4 +14,6 @@ cask 'gitup' do
 
   app 'GitUp.app'
   binary "#{appdir}/GitUp.app/Contents/SharedSupport/gitup"
+
+  zap trash: '~/Library/Preferences/co.gitup.mac.plist'
 end

@@ -1,15 +1,44 @@
 cask 'docker-toolbox' do
-  version '1.13.1a'
-  sha256 '44fa59b71f961056b255426fb9487933282d895d3920ba13a41f533b6c190e7c'
+  version '18.03.0-ce'
+  sha256 '16ea4d6d8125dfd9dc78492beb3cef6239b87cf568715df8d9efffd63c6a3cfe'
 
   # github.com/docker/toolbox was verified as official when first introduced to the cask
   url "https://github.com/docker/toolbox/releases/download/v#{version}/DockerToolbox-#{version}.pkg"
   appcast 'https://github.com/docker/toolbox/releases.atom',
-          checkpoint: 'f36fe3efd4c54d75a8a9ef44a626c40ab00adecd46e213bdc1bfcce6be13df96'
+          checkpoint: '07cca77f921bcd7492bb4d9b8962358bbe9ec90f198d558f7f517aa5002a4e89'
   name 'Docker Toolbox'
   homepage 'https://www.docker.com/products/docker-toolbox'
 
-  pkg "DockerToolbox-#{version}.pkg"
+  depends_on cask: 'virtualbox'
+
+  pkg "DockerToolbox-#{version}.pkg",
+      choices: [
+                 {
+                   'choiceIdentifier' => 'choiceDockerComposeCLI',
+                   'choiceAttribute'  => 'selected',
+                   'attributeSetting' => 1,
+                 },
+                 {
+                   'choiceIdentifier' => 'choiceDockerQuickstartTerminalAPP',
+                   'choiceAttribute'  => 'selected',
+                   'attributeSetting' => 1,
+                 },
+                 {
+                   'choiceIdentifier' => 'choiceKitematicAPP',
+                   'choiceAttribute'  => 'selected',
+                   'attributeSetting' => 1,
+                 },
+                 {
+                   'choiceIdentifier' => 'choiceVBox',
+                   'choiceAttribute'  => 'selected',
+                   'attributeSetting' => 0,
+                 },
+                 {
+                   'choiceIdentifier' => 'choiceBoot2DockerISO',
+                   'choiceAttribute'  => 'selected',
+                   'attributeSetting' => 1,
+                 },
+               ]
 
   postflight do
     set_ownership '~/.docker'
@@ -23,4 +52,6 @@ cask 'docker-toolbox' do
                        'io.docker.pkg.dockerquickstartterminalapp',
                        'io.docker.pkg.kitematicapp',
                      ]
+
+  zap trash: '~/.docker'
 end

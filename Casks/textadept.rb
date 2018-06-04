@@ -1,10 +1,10 @@
 cask 'textadept' do
-  version '9.2'
-  sha256 '8fbc8f05ebbcd0118d72a2d1044415778aadc7a4c9bfba578f2964383797f66e'
+  version '9.6'
+  sha256 '0e4612263654b07cc8edb978f4fd9806b37b76c085f5d39a10312c7a60b9d207'
 
   url "https://foicica.com/textadept/download/textadept_#{version}.osx.zip"
   appcast 'https://foicica.com/textadept/feed',
-          checkpoint: '62e7aa917e28ee129b3942114bd18e635a6c0ed081a1ec71eecc75f661e44be4'
+          checkpoint: '78f04804812bfcbcd187db0addf01ff69b9330008def73f14891649efea63192'
   name 'Textadept'
   homepage 'https://foicica.com/textadept/'
 

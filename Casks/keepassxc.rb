@@ -1,15 +1,16 @@
 cask 'keepassxc' do
-  version '2.1.2'
-  sha256 '04af9a73cb8af055f209409c10a54bc82e06c8ad788d4ee431ff48757854a431'
+  version '2.3.3'
+  sha256 '1219dd686aee2549ef8fe688aeef22e85272a8ccbefdbbb64c0e5601db17fbdb'
 
   # github.com/keepassxreboot/keepassxc was verified as official when first introduced to the cask
   url "https://github.com/keepassxreboot/keepassxc/releases/download/#{version}/KeePassXC-#{version}.dmg"
   appcast 'https://github.com/keepassxreboot/keepassxc/releases.atom',
-          checkpoint: 'b4c39c3238663ed3a961552df7d77e30cfb107eb7e95b9f98833adebf2314c82'
+          checkpoint: 'd8fd1f18b891d646d5021bd25a0fc9f2a8ccc4e57d2631ce4b286950ed73b765'
   name 'KeePassXC'
   homepage 'https://keepassxc.org/'
+  gpg "#{url}.sig", key_url: 'https://keepassxc.org/keepassxc_master_signing_key.asc'
 
   app 'KeePassXC.app'
 
-  zap delete: '~/.keepassxc'
+  zap trash: '~/.keepassxc'
 end

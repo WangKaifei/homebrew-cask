@@ -1,10 +1,10 @@
 cask 'nocturn' do
-  version '1.5.1'
-  sha256 'f5139c52bc73a9fb30d3f63b0d42ca6f65612954d065a62663b2a117b4bb354a'
+  version '1.6.2'
+  sha256 '76bf310719ab2da6ee3356d548a3e2405403ab4dfbb8ec7721a277fbff6401d8'
 
   url "https://github.com/k0kubun/Nocturn/releases/download/v#{version}/Nocturn-darwin-x64.zip"
   appcast 'https://github.com/k0kubun/Nocturn/releases.atom',
-          checkpoint: '5f5a4d6bd9a59896b410d2b57489324a2bae3247ecf99b4c4176314d7f45081e'
+          checkpoint: '0b791294a4fa4bc9944b38ea428710a04cd208e4d871b3f3fedcbbb39fe3067c'
   name 'Nocturn'
   homepage 'https://github.com/k0kubun/Nocturn'
 

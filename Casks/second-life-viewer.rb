@@ -1,8 +1,8 @@
 cask 'second-life-viewer' do
-  version '3.8.1.303130'
-  sha256 'eecb67fbbba4b988a858a83318d87d5f99451dbfa567b75d4bd91059904bca42'
+  version '5.1.4.515016'
+  sha256 '2bab017313d5114fae0e1df6b71b4b4a29b8319f4d028072b4b70571c23202ad'
 
-  url "http://download.cloud.secondlife.com/Viewer_3/Second_Life_#{version.dots_to_underscores}_i386.dmg"
+  url "http://download.cloud.secondlife.com/Viewer_#{version.major}/Second_Life_#{version.dots_to_underscores}_x86_64.dmg"
   name 'Linden Lab Second Life Viewer'
   homepage 'https://secondlife.com/'
 
@@ -10,8 +10,8 @@ cask 'second-life-viewer' do
 
   app 'Second Life Viewer.app'
 
-  zap delete: [
-                '~/Library/Application Support/SecondLife',
-                '~/Library/Caches/SecondLife',
-              ]
+  zap trash: [
+               '~/Library/Application Support/SecondLife',
+               '~/Library/Caches/SecondLife',
+             ]
 end

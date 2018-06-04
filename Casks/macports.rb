@@ -1,40 +1,45 @@
 cask 'macports' do
-  version '2.4.0'
+  version '2.5.0'
 
   if MacOS.version <= :mountain_lion
-    sha256 '09200c9bf2c0d62f792647acf422e95a5799d43580d49e3fbc26ce87befdc483'
+    sha256 '9212c3803e2d53a765e31fcd231d43a7bc7191f824c00a195f5e9be213449cae'
     # github.com/macports/macports-base was verified as official when first introduced to the cask
     url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.8-MountainLion.pkg"
     pkg "MacPorts-#{version}-10.8-MountainLion.pkg"
   elsif MacOS.version <= :mavericks
-    sha256 'f1977ba2b3553f405468dcf25d1a526976013b883a6ef537dae25ec6d38e150a'
+    sha256 'c3fb4a53d38ff6bcb03b84cb979d80a21a84092fa969bee473866e3e42d88b76'
     # github.com/macports/macports-base was verified as official when first introduced to the cask
     url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.9-Mavericks.pkg"
     pkg "MacPorts-#{version}-10.9-Mavericks.pkg"
   elsif MacOS.version <= :yosemite
-    sha256 '19747e613a7f6d74f26dae88dee9c204512a3ada9eb0070ee087658f54e789d9'
+    sha256 '763b14cd5c7a3daa743739d874df1258dc580ee7f2c34fed4c3c46ee25a28244'
     # github.com/macports/macports-base was verified as official when first introduced to the cask
     url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.10-Yosemite.pkg"
     pkg "MacPorts-#{version}-10.10-Yosemite.pkg"
   elsif MacOS.version <= :el_capitan
-    sha256 'e4365a2c21f70c4f18496fdf5442e8f8e8d8adac0202981ba2c9d9f367f454b6'
+    sha256 'b51bd1984641b43ec3b44c8236a7e2b84ab562e5a167417aab541060b6f4bc54'
     # github.com/macports/macports-base was verified as official when first introduced to the cask
     url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.11-ElCapitan.pkg"
     pkg "MacPorts-#{version}-10.11-ElCapitan.pkg"
-  else
-    sha256 '0ccf8a121df9277ad19ba215ca355f9f3bab3f1aca2d7fd542f1cfb67dd0e500'
+  elsif MacOS.version <= :sierra
+    sha256 'c66ae68ebd3a37e4a1055a7e90332777a72b28c24bc5d3d0524b088a467393d6'
     # github.com/macports/macports-base was verified as official when first introduced to the cask
     url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.12-Sierra.pkg"
     pkg "MacPorts-#{version}-10.12-Sierra.pkg"
+  else
+    sha256 '5024942ebe6dbef01a624b12b9ad25701eaa60e934f59285551c363413f2f7cf'
+    # github.com/macports/macports-base was verified as official when first introduced to the cask
+    url "https://github.com/macports/macports-base/releases/download/v#{version}/MacPorts-#{version}-10.13-HighSierra.pkg"
+    pkg "MacPorts-#{version}-10.13-HighSierra.pkg"
   end
 
   appcast 'https://github.com/macports/macports-base/releases.atom',
-          checkpoint: 'b236fb8b470de6132694c44efa7df0ddafff4b5ed671eea71779ef9f27d2fb5d'
+          checkpoint: 'cf85055221762657350fd4d580efc31d7e1f71e60fa103b5ead055e38e917a37'
   name 'MacPorts'
   homepage 'https://www.macports.org/'
   gpg "#{url}.asc", key_id: '01ff673fb4aae6cd'
 
   uninstall pkgutil: 'org.macports.MacPorts'
 
-  zap       delete: '~/.macports'
+  zap trash: '~/.macports'
 end

@@ -1,15 +1,17 @@
 cask 'xampp' do
-  version '5.6.28-1'
-  sha256 '23ea25814a5f2bb38cf5d43d499bafbcfc303ec99f967b69d8f5b43e8f65fa0b'
+  version '7.2.5-0'
+  sha256 '17ec884968493468b5fe57131891d856b893109b2598ba4ed8a5b7981afcd419'
 
   # downloadsapachefriends.global.ssl.fastly.net/xampp-files was verified as official when first introduced to the cask
   url "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/#{version.major_minor_patch}/xampp-osx-#{version}-installer.dmg"
   name 'XAMPP'
   homepage 'https://www.apachefriends.org/index.html'
 
-  installer script: 'XAMPP.app/Contents/MacOS/osx-intel',
-            args:   ['--mode', 'unattended'],
-            sudo:   true
+  installer script: {
+                      executable: 'XAMPP.app/Contents/MacOS/osx-intel',
+                      args:       ['--mode', 'unattended'],
+                      sudo:       true,
+                    }
 
   uninstall quit:   'com.bitnami.manager',
             delete: '/Applications/XAMPP/'

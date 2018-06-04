@@ -1,11 +1,11 @@
 cask 'cockatrice' do
-  version '2016-12-31,All_Hallows_Eve_Revision1'
-  sha256 '173ed52cda8e984cd37c1bb6967ba6d9269e212a4c58802951c140f15bd2e0d1'
+  version '2.5.1,2018-04-16:Decked_Out_Revision_1'
+  sha256 '52bdd2bb95bdfc6befe245d0822d81fe4d560205a436f7a258554c097176ea1d'
 
   # github.com/Cockatrice/Cockatrice was verified as official when first introduced to the cask
-  url "https://github.com/Cockatrice/Cockatrice/releases/download/#{version.before_comma}-Release/Cockatrice_#{version.after_comma}_osx.dmg"
+  url "https://github.com/Cockatrice/Cockatrice/releases/download/#{version.after_comma.before_colon}-Release-#{version.before_comma}/Cockatrice-#{version.after_colon}-#{version.before_comma}.dmg"
   appcast 'https://github.com/Cockatrice/Cockatrice/releases.atom',
-          checkpoint: '6d2a3f4aee905da93316c3ffc70891937900f5aa34b61182c487de7b935f7e1e'
+          checkpoint: 'ba7f4c27bf3cf62a38e2cbb1c51203371d11a762cd2340f1070856c0f9255081'
   name 'Cockatrice'
   homepage 'http://www.woogerworks.com/'
 
@@ -19,12 +19,12 @@ cask 'cockatrice' do
                     'com.cockatrice.servatrice',
                   ]
 
-  zap delete: [
-                '~/Library/Application Support/Cockatrice',
-                '~/Library/Preferences/com.cockatrice.Cockatrice.plist',
-                '~/Library/Preferences/com.cockatrice.oracle.plist',
-                '~/Library/Preferences/de.cockatrice.Cockatrice.plist',
-                '~/Library/Saved Application State/com.cockatrice.cockatrice.savedState',
-                '~/Library/Saved Application State/com.cockatrice.oracle.savedState',
-              ]
+  zap trash: [
+               '~/Library/Application Support/Cockatrice',
+               '~/Library/Preferences/com.cockatrice.Cockatrice.plist',
+               '~/Library/Preferences/com.cockatrice.oracle.plist',
+               '~/Library/Preferences/de.cockatrice.Cockatrice.plist',
+               '~/Library/Saved Application State/com.cockatrice.cockatrice.savedState',
+               '~/Library/Saved Application State/com.cockatrice.oracle.savedState',
+             ]
 end

@@ -1,8 +1,8 @@
 cask 'newmoon' do
-  version '26.5.0-131'
-  sha256 '617581f55863b2ab0f55538791d2c82a06378febffebce14b8d1c1d625f465cb'
+  version '27.9.0'
+  sha256 '1982b506d012db957e4bf017dcb2b7aaed65bb72d8e8a12fcc5f304f1231395e'
 
-  url "https://mac.palemoon.org/dist/palemoon-#{version}-gstreamer.en-US.mac64.dmg"
+  url "http://mac.palemoon.org/dist/palemoon-#{version}.mac64.dmg"
   name 'Pale Moon'
   homepage 'https://www.palemoon.org/'
 

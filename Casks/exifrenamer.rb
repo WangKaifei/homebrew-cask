@@ -1,14 +1,14 @@
 cask 'exifrenamer' do
-  version '2.1.3'
-  sha256 '638a95447a2d51312acffe48bb767694d935aa8f448963947ce48db0767bb10e'
+  version '2.2.2'
+  sha256 '7df7055250984820e5f91f0ec3718658f4570258af72766a2c487457a6a7f04f'
 
-  url 'http://www.qdev.de/downloads/files/ExifRenamer.dmg'
-  appcast 'http://www.qdev.de/versions/ExifRenamer.txt',
-          checkpoint: 'eb01a4e8e8922406f15a22cadc3fae28d4f513afe11b4734788eb2ea73cf034e'
+  url 'https://www.qdev.de/downloads/files/ExifRenamer.dmg'
+  appcast 'https://www.qdev.de/versions/ExifRenamer.txt',
+          checkpoint: '36f4d4845f52a9b18d480b77b7e473ce0af9a412a1be5fd8c2e7a1ec5d125307'
   name 'ExifRenamer'
-  homepage 'http://www.qdev.de/?location=mac/exifrenamer&forcelang=en'
+  homepage 'https://www.qdev.de/?location=mac/exifrenamer&forcelang=en'
 
   app 'ExifRenamer.app'
 
-  zap delete: '~/Library/Preferences/de.qdev.ExifRenamer.plist'
+  zap trash: '~/Library/Preferences/de.qdev.ExifRenamer.plist'
 end

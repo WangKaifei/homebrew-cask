@@ -1,6 +1,6 @@
 cask 'odrive' do
-  version '5998'
-  sha256 'dc09f86cca468a587fecd17fe7c3ec5c0b2436631b20c84ddeac766b2ac42450'
+  version '6344'
+  sha256 'f6af36bfef76b9d6b5d192392f3d807d31f21320e7b80567131d4055c2ba7ab8'
 
   # downloads can be found at https://www.odrive.com/downloaddesktop
   # d3huse1s6vwzq6.cloudfront.net was verified as official when first introduced to the cask
@@ -10,5 +10,5 @@ cask 'odrive' do
 
   pkg "odrive.#{version}.pkg"
 
-  uninstall pkgutil: 'com.oxygencloud.odrive.*'
+  uninstall pkgutil: 'com.oxygen.odrive.*'
 end

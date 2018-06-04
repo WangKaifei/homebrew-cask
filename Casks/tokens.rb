@@ -1,12 +1,15 @@
 cask 'tokens' do
-  version '1.5.4'
-  sha256 '9b33639cdd9037d7c385432c3e2aabc0cce066002b5f3b767b82257f3cda167b'
+  version '1.6.3-68'
+  sha256 'c9135ae7c5b6fff36857f5057eca67b052900cf062cc8226484c6b5b6e0cd5e2'
 
-  url "http://resources.usetokens.com/download/#{version}/Tokens.app.zip"
-  appcast 'http://api.usetokens.com/updates/stable',
-          checkpoint: 'e255134bf321cd7998ac78cb7bf87b29cca4134f840e11d502532b4faa765927'
+  # peerassembly.net/apps/tokens was verified as official when first introduced to the cask
+  url "https://peerassembly.net/apps/tokens/#{version}/Tokens.zip"
+  appcast 'https://peerassembly.net/apps/tokens/stable.xml',
+          checkpoint: '96cf1a8dec3e8a96c7eff2a6d79e89f014afee33d57a18ae30ae1466d13774cb'
   name 'Tokens'
   homepage 'http://usetokens.com/'
+
+  auto_updates true
 
   app 'Tokens.app'
 end
